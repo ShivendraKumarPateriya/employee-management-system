@@ -19,7 +19,7 @@ export function signToken(userId: string) {
 export function setAuthCookie(res: Response, token: string) {
   res.cookie(config.COOKIE_NAME, token, {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: isProduction ? "none" : "lax",
     secure: isProduction,
     maxAge: 24 * 60 * 60 * 1000
   });
@@ -28,7 +28,7 @@ export function setAuthCookie(res: Response, token: string) {
 export function clearAuthCookie(res: Response) {
   res.clearCookie(config.COOKIE_NAME, {
     httpOnly: true,
-    sameSite: "lax",
+    sameSite: isProduction ? "none" : "lax",
     secure: isProduction
   });
 }

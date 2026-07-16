@@ -6,8 +6,8 @@ import { ArrowRight, LogIn, ShieldCheck, Users2 } from "lucide-react";
 import { apiFetch } from "@/lib/api";
 
 export default function LoginPage() {
-  const [email, setEmail] = useState("admin@ems.local");
-  const [password, setPassword] = useState("Password123!");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -45,7 +45,7 @@ export default function LoginPage() {
             </span>
             <p className="eyebrow mt-6">Employee Management System</p>
             <h1 className="display mt-3 max-w-xl text-5xl font-bold leading-tight">A cleaner way to run people operations, role access, and reporting structure.</h1>
-            <p className="mt-4 max-w-xl text-base text-[var(--muted)]">Use the seeded demo accounts to test the complete admin, HR, and employee experience locally.</p>
+            <p className="mt-4 max-w-xl text-base text-[var(--muted)]">Manage employee access, reporting structure, and workforce data from one secure workspace.</p>
           </div>
           <div className="mt-8 grid gap-3 sm:grid-cols-3">
             <div className="panel panel-strong p-4">
@@ -70,7 +70,7 @@ export default function LoginPage() {
           <div>
             <p className="eyebrow">Welcome back</p>
             <h2 className="display mt-2 text-4xl font-bold">Sign in</h2>
-            <p className="mt-2 text-[var(--muted)]">Use any seeded account below.</p>
+            <p className="mt-2 text-[var(--muted)]">Sign in with your employee credentials.</p>
           </div>
           {error ? <p className="rounded-md border border-red-300 bg-red-50 p-3 text-sm font-bold text-red-700">{error}</p> : null}
           <label className="label">
@@ -85,21 +85,6 @@ export default function LoginPage() {
             <LogIn size={18} /> {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
-        <div className="mt-4 grid gap-3">
-          <div className="panel p-4">
-            <p className="text-sm font-bold text-[var(--muted)]">Super Admin</p>
-            <p className="mt-1 font-bold">admin@ems.local</p>
-          </div>
-          <div className="panel p-4">
-            <p className="text-sm font-bold text-[var(--muted)]">HR Manager</p>
-            <p className="mt-1 font-bold">hr@ems.local</p>
-          </div>
-          <div className="panel p-4">
-            <p className="text-sm font-bold text-[var(--muted)]">Employee</p>
-            <p className="mt-1 font-bold">employee@ems.local</p>
-          </div>
-          <p className="badge justify-center">Password: Password123!</p>
-        </div>
         </div>
       </section>
     </main>
